@@ -8,9 +8,11 @@
     networks:
       - name: "{{docker_network_name}}"
 
-
-docker_container:
-name: "app2"
-image: "{{docker_repo}}/image_name2"
-state: started
-restart_policy: unless-stopped
+- name: "Container for app2"
+  docker_container:
+    name: "app2"
+    image: "{{docker_repo}}/image_name2"
+    state: started
+    restart_policy: unless-stopped
+    networks:
+      - name: "{{docker_network_name}}"
