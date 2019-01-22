@@ -1,0 +1,6 @@
+---
+
+tag_app: latest
+tag_app2: latest
+image_app: busybox
+image_app2: busybox
