@@ -1,5 +1,18 @@
 # ansible_example
 
-Describe what this repo do
+Install:
 
-Make pull request into this repo if you can improve of fix something
+```shell
+pip install -r requirements.txt
+```
+
+Usage:
+
+```shell
+cd ansible/
+
+ansible-playbook deploy-app.yml
+
+ansible-playbook deploy-ngx.yml
+```
+
