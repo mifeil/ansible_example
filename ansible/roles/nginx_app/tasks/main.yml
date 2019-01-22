@@ -1,22 +1,36 @@
-- name: ensure nginx conf directory
+---
+
+- name: "Login into docker registry"
+  include_role: 
+    name: common
+    tasks_from: docker_login
+    defaults_from: docker_login
+    public: true
+  vars:
+    login_docker_repo: true
+  when: login_docker_repo_ngx
+
+- name: "Ensure nginx conf directory in '{{ host_wd_ngx }}'"
   file:
-    path: /etc/nginx/conf.d
+    path: "{{ host_wd_ngx }}/nginx/conf.d"
     state: directory
 
-- name: copy main nginx conf
-  copy:
-    src: nginx.conf
-    dest: /etc/nginx/nginx.conf
+- name: "Copy main nginx conf"
+  template:
+    src: "nginx.conf.j2"
+    dest: "{{ host_wd_ngx }}/nginx/nginx.conf"
 
-- name: Run nginx container
+- name: "Run nginx container"
   docker_container:
     name: nginx
-    image: nginx
+    image: "{{ docker_repo_url }}/{{ image_ngx }}:{{ tag_ngx }}"
     state: started
     ports:
-      - IP:80:80
-      - 8.8.8.8:443:443
-      - 0.0.0.0:700000:653
+      - 0.0.0.0:443:443
+      - 0.0.0.0:80:80
+      - 0.0.0.0:7000:653
     restart_policy: unless-stopped
+    networks:
+      - name: "{{ docker_network_name }}"
     volumes:
-      - /etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - "{{ host_wd_ngx }}/nginx/:{{ docker_wd_ngx }}/nginx/:ro"

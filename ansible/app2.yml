@@ -1,4 +1,0 @@
-- hosts: host
-  tasks:
-    - name: Deploy application with nginx
-      - nginx_app

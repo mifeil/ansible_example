@@ -1,5 +1,15 @@
 ---
 
+- name: "Login into docker registry"
+  include_role: 
+    name: common
+    tasks_from: docker_login
+    defaults_from: docker_login
+    public: true
+  vars:
+    login_docker_repo: true
+  when: login_docker_repo_app
+
 - name: "Create a network"
   docker_network:
     name: "{{ docker_network_name }}"
@@ -7,7 +17,7 @@
 - name: "Container for app"
   docker_container:
     name: "app"
-    image: "{{ docker_repo }}/{{ image_app }}:{{ tag_app2 }}"
+    image: "{{ docker_repo_url }}/{{ image_app }}:{{ tag_app2 }}"
     state: started
     restart_policy: unless-stopped
     networks:
@@ -16,7 +26,7 @@
 - name: "Container for app2"
   docker_container:
     name: "app2"
-    image: "{{ docker_repo }}/{{ image_app2 }}:{{ tag_app2 }}"
+    image: "{{ docker_repo_url }}/{{ image_app2 }}:{{ tag_app2 }}"
     state: started
     restart_policy: unless-stopped
     networks:

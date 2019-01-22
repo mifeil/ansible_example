@@ -1,13 +1,15 @@
 ---
 
+host_wd_ngx: "/etc"
+
+image_ngx: "nginx"
+tag_ngx: "latest"
+
 docker_repo_url: "{{ lookup('env', 'DOCKER_REPO') or 'docker.io' }}"
 docker_repo_user: "{{ lookup('env', 'DOCKERHUB_USER') or 'docker_user' }}"
 docker_repo_password: "{{lookup('env', 'DOCKERHUB_PASSWORD')}}"
-docker_repo_email: "{{ lookup('env', 'DOCKERHUB_EMAIL') or 'app@example.com'"
+docker_repo_email: "{{ lookup('env', 'DOCKERHUB_EMAIL') or 'ngx@example.com'"
 
 docker_network_name: "custom-network"
 
-tag_app: latest
-tag_app2: latest
-image_app: busybox
-image_app2: busybox
+docker_wd_ngx: "/etc"

@@ -1,4 +1,4 @@
 - hosts: host
   become: true
   roles:
-    - application
+    - nginx_app

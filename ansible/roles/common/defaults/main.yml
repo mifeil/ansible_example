@@ -4,7 +4,7 @@ login_docker_repo: false
 docker_repo_url: "docker.io"
 docker_repo_user: "docker_user"
 docker_repo_password: "someStrongPa$$w0rd"
-docker_repo_email: "mail@example.com"
+docker_repo_email: "common@example.com"
 
 docker_network_name: "custom-network"
 
