@@ -1,16 +1,13 @@
-
 - name: "Container for app"
   docker_container:
-    name: "app"
+    name: "app1"
     image: "{{docker_repo}}/image_name"
-    state: startedfiles
+    state: started
     restart_policy: unless-stopped
     networks:
       - name: "{{docker_network_name}}"
+    tags:
+    - deploy
+    - deploy_app1
 
-
-docker_container:
-name: "app2"
-image: "{{docker_repo}}/image_name2"
-state: started
-restart_policy: unless-stopped
+  

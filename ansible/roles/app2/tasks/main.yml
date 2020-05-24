@@ -1,5 +1,5 @@
 - import_tasks: deploy.yml
   tags:
   - deploy
-  - deploy_nginx_app
+  - deploy_app2
 

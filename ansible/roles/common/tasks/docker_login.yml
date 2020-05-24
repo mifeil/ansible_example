@@ -1,0 +1,6 @@
+- name: Log into docker registry
+  docker_login:
+    username: "{{docker_repo_user}}"
+    registry_url: "{{docker_repo}}"
+    password: "{{ docker_repo_password }}"
+    email: mail@example.com

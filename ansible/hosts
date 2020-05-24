@@ -1,2 +1,4 @@
-# imagine it is real
-host
+[all:children]
+hosts
+
+

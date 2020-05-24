@@ -1,0 +1,3 @@
+nginx_path: "/etc/nginx"
+nginx_domain: domain.com
+nginx_HTTP: 80

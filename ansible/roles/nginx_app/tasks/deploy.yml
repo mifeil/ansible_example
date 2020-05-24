@@ -1,0 +1,25 @@
+- name: Ensure nginx conf directory
+  file:
+    path: "{{nginx_path}}/conf.d"
+    state: directory
+  tags:
+  - deploy
+  - deploy_nginx_app
+  - 
+- name: Copy main nginx conf
+  copy:
+    src: nginx.conf
+    dest: "{{nginx_path}}/nginx.conf"
+
+- name: Run nginx container
+  docker_container:
+    name: nginx
+    image: nginx
+    state: started
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+      - 0.0.0.0:700:653
+    restart_policy: unless-stopped
+    volumes:
+      - "{{nginx_path}}/nginx.conf:{{nginx_path}}/nginx.conf:ro"

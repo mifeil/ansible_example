@@ -1,0 +1,8 @@
+- name: "Container for app2"
+  docker_container:
+    image: "{{docker_repo}}/image_name2"
+    state: started
+    restart_policy: unless-stopped
+  tags:
+  - deploy
+  - deploy_app2
