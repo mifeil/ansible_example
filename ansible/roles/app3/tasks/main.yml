@@ -1,15 +1,15 @@
 - import_tasks: stop.yml
   tags:
   - stop
-  - stop_app1
+  - stop_app3
   - remove
-  - remove_app1
+  - remove_app3
 - import_tasks: remove.yml
   tags:
   - remove
-  - remove_app1
+  - remove_app3
 - import_tasks: deploy.yml
   tags:
   - deploy
-  - deploy_app1
+  - deploy_app3
 

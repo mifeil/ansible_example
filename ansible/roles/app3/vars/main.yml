@@ -1,0 +1,5 @@
+image_name: nginx 
+path: "/etc/nginx"
+root_path: "/app/web/"
+domain: "domain.com"
+port: 80

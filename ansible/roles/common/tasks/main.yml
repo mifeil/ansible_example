@@ -1,5 +1,7 @@
 - import_tasks: docker_login.yml
   tags:
   - deploy
+  - deploy_app1
   - deploy_app2
+  - deploy_app3
 

@@ -1,0 +1,23 @@
+- name: "Ensure {{image_name}} conf directory"
+  file:
+    path: "{{path}}/conf.d"
+    state: directory
+  tags:
+- name: "Copy main {{image_name}} conf"
+  copy:
+    src: "{{image_name}}.conf"
+    dest: "{{path}}/{{image_name}}.conf"
+
+- name: "Run {{image_name}} container"
+  docker_container:
+    name: "{{image_name}}"
+    image: "{{image_name}}"
+    state: started
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+      - 0.0.0.0:700:653
+    restart_policy: on-failure
+    volumes:
+      - "{{path}}/{{image_name}}.conf:{{path}}/{{image_name}}.conf:ro"
+      - "{{root_path}}:{{root_path}}"
