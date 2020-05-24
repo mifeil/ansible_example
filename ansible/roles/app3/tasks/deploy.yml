@@ -2,9 +2,8 @@
   file:
     path: "{{path}}/conf.d"
     state: directory
-  tags:
 - name: "Copy main {{image_name}} conf"
-  copy:
+  template:
     src: "{{image_name}}.conf"
     dest: "{{path}}/{{image_name}}.conf"
 

@@ -2,4 +2,4 @@ image_name: nginx
 path: "/etc/nginx"
 root_path: "/app/web/"
 domain: "domain.com"
-port: 80
+image_port: "80"
