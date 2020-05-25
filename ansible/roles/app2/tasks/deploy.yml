@@ -1,4 +1,4 @@
-- name: "Container for {{image_name}}"
+- name: "Run {{image_name}} container"
   docker_container:
     name: "{{image_name}}"
     image: "{{docker_repo}}/{{image_name}}"
