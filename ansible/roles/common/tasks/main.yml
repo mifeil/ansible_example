@@ -4,4 +4,11 @@
   - deploy_app1
   - deploy_app2
   - deploy_app3
+- import_tasks: docker_network.yml
+  tags:
+  - deploy
+  - deploy_app1
+  - deploy_app2
+  - deploy_app3
+
 

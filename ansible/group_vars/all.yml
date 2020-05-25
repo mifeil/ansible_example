@@ -1,7 +1,7 @@
-docker_repo: "{{lookup('env', 'DOCKER_REPO') or 'docker.io'}}"
-docker_repo_user: "{{lookup('env', 'DOCKER_USER') or 'username'}}"
-docker_repo_password: "{{lookup('env', 'DOCKERHUB_PASSWORD') or 'password:('}}"
-docker_repo_email: "{{lookup('env', 'DOCKERHUB_EMAIL') or 'email@mail.com'}}"
+docker_repo: "{{lookup('env', 'DOCKER_REPO')}}"
+docker_repo_user: "{{lookup('env', 'DOCKER_USER')}}"
+docker_repo_password: "{{lookup('env', 'DOCKERHUB_PASSWORD')}}"
+docker_repo_email: "{{lookup('env', 'DOCKERHUB_EMAIL')}}"
 docker_network_name: "custom-network"
 
 

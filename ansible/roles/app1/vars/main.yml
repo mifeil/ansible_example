@@ -1,1 +1,1 @@
-image_name: app1
+image_name: "{{lookup('env', 'APP1')}}"
