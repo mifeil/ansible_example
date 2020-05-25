@@ -1,6 +1,14 @@
-- name: Log into docker registry
-  docker_login:
-    username: "{{docker_repo_user}}"
-    registry_url: "{{docker_repo}}"
-    password: "{{ docker_repo_password }}"
-    email: mail@example.com
+- import_tasks: docker_login.yml
+  tags:
+  - deploy
+  - deploy_app1
+  - deploy_app2
+  - deploy_app3
+- import_tasks: docker_network.yml
+  tags:
+  - deploy
+  - deploy_app1
+  - deploy_app2
+  - deploy_app3
+
+

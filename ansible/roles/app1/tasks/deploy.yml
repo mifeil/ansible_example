@@ -1,0 +1,11 @@
+- name: "Run {{image_name}} container"
+  docker_container:
+    name: "{{image_name}}"
+    image: "{{docker_repo}}/{{image_name}}"
+    state: started
+    restart_policy: on-failure
+    networks:
+      - name: "{{docker_network_name}}"
+
+
+  

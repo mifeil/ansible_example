@@ -1,5 +1,7 @@
-docker_repo: "{{lookup('env', 'DOCKER_REPO') or 'selfhosted.repository'}}"
-docker_repo_user: docker_user
+docker_repo: "{{lookup('env', 'DOCKER_REPO')}}"
+docker_repo_user: "{{lookup('env', 'DOCKER_USER')}}"
 docker_repo_password: "{{lookup('env', 'DOCKERHUB_PASSWORD')}}"
+docker_repo_email: "{{lookup('env', 'DOCKERHUB_EMAIL')}}"
 docker_network_name: "custom-network"
+
 

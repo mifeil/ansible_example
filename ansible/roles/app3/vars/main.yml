@@ -1,0 +1,5 @@
+image_name: "{{lookup('env', 'APP3')}}" 
+path: "/etc/nginx"
+root_path: "/app/web/"
+domain: "domain.com"
+image_port: "80"
